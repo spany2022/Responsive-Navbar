@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Work+Sans&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*    */
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
+}
+/*  for desktop  */
+.header{
+    padding: 0 4.8rem;
+    height: 10rem;
+    display: flex; /* using for 2 column side by side */
+    justify-content: space-between; /*using for two column */
+    align-items: center;
+    background-color: #F7F6DC; /*add background-color in nav bar */
+}
+.header .logo{
+    height: 3rem; /* add size of the logo   */
+}
+.navbar-list{
+    display: flex;
+    gap: 4.8rem; /* add a space betwwen li tag   */
+    list-style: none;  /*  remove the bullet point  */
+}
+.navbar-link:link,
+.navbar-link:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;  /* remove underline from <a> tag   */
+    font-size: 2rem;
+    font-weight: 500;
+    color: #212529;
+    transition: all 0.3s;
+}
+.navbar-link:hover,
+.navbar-link:active{
+ color: #ffe606;
+}
+
+/*  navbar for mobile  */
+
+.mobile-navbar-btn {
+    display: none; /* in desktop version hide the icon  */
+    background: transparent;
+    cursor: pointer;
+}
+
+
+.mobile-nav-icon{
+    width: 4rem;  /*  for increase height and width the icon size */
+    height: 4rem;
+    color: #212529;
+}
+.mobile-nav-icon[name="close-outline"] {
+    display: none;  /* target close icon and remove from the mobile site */
+}
+
+/***********************
+responsive nav bar
+***********************/
+@media(max-width: 980px){
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+        border: 3px solid #212529;
+    }
+
+    .header .logo{
+        width: 40%;  /*  set the logo  */
+    }
+    header{
+        position: relative;
+    }
+    /***********  MOST IMPORTANT PART ****************/
+    .navbar{
+        /* display: none;  remove the navbar link  */
+        width: 100%;
+        height: 100vh;
+        background: #e7f5ff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Now all the navbar links are in center */
+        /* now add the transition from right */
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        opacity: 0;
+        visibility: hidden;
+
+        /* Now arise a problem your screen is now two column 🤣 .
+        Now go to html in css, add overflow-x: hidden and in body tag
+        add overflow-x: hidden*/
+    }
+    .navbar-list{
+        flex-direction: column;  /* now all are in ek ke niche ek 😋 */
+        align-items: center;
+    }
+    .active .navbar{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .active .mobile-navbar-btn .mobile-nav-icon[name="close-outline"]{
+        display: block;
+    }
+    .active .mobile-navbar-btn .mobile-nav-icon[name="menu-outline"]{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************
+hero and service section
+***********************/
+.section-hero,
+.section-services {
+    padding: 9.6rem 0;
+    background-color: #a5d8ff;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-services{
+    background: #f3f0ff;
+}
+.section-hero p,
+.section-services p{
+    font-size: 3.2rem;
+}
+
